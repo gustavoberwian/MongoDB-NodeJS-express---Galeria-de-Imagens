@@ -1,0 +1,32 @@
+<div class="container">
+    <br>
+    <h1 class="text-center">Node.js Image Gallery</h1>
+    <br>
+
+    {{#if success}}
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                &times;
+            </a>
+            <strong>Sucesso!</strong> Sua imagem foi carregada
+        </div>
+    {{/if}}
+
+    <form method="post" action="/" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Select Image">Selecione uma imagem:</label>
+            <input type="file" name="image" class="form-control" required id="">
+        </div>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-block btn-danger">
+                Carregue sua imagem
+            </button>
+        </div>
+    </form>
+    {{#each records}}
+        {{#each this}}
+            <img src="{{this.imagename}}" class="image-thumbnail" style="width: 50%; display: flex; justify-content: center; position: relative; left: 25%;"><br>
+        {{/each}}
+    {{/each}}
+</div>
